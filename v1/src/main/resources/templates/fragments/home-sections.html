@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Fragment: Valores Corporativos -->
+    <section th:fragment="valores" id="valores" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Nuestros Valores</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-heart fa-4x text-danger mb-3"></i>
+                            <h5 class="card-title fw-bold">Pasión</h5>
+                            <p class="card-text">Amamos el patinaje y transmitimos esa pasión a cada alumno, inspirándolos a alcanzar sus metas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-4x text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">Trabajo en Equipo</h5>
+                            <p class="card-text">Fomentamos la colaboración y el compañerismo entre nuestros estudiantes en cada clase.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm text-center p-4">
+                        <div class="card-body">
+                            <i class="fas fa-trophy fa-4x text-warning mb-3"></i>
+                            <h5 class="card-title fw-bold">Excelencia</h5>
+                            <p class="card-text">Buscamos la excelencia en cada clase y entrenamiento, formando campeones de corazón.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin fragment: valores -->
+
+    <!-- Fragment: Misión y Visión -->
+    <section th:fragment="mision-vision" id="mision" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Misión y Visión</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-bullseye fa-3x me-3" style="color: #f97316;"></i>
+                                <h3 class="card-title mb-0 fw-bold" style="color: #f97316;">Nuestra Misión</h3>
+                            </div>
+                            <p class="card-text lead">Formar patinadores de excelencia a través de programas educativos y deportivos que promuevan el desarrollo integral de niños y jóvenes, inculcando valores de disciplina, respeto y superación personal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-eye fa-3x me-3" style="color: #f97316;"></i>
+                                <h3 class="card-title mb-0 fw-bold" style="color: #f97316;">Nuestra Visión</h3>
+                            </div>
+                            <p class="card-text lead">Ser la escuela de patinaje líder en la región, reconocida por la calidad de nuestros programas, la excelencia de nuestros instructores y el éxito de nuestros alumnos en competencias nacionales e internacionales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin fragment: mision-vision -->
+
+    <!-- Fragment: Programas (vista home) -->
+    <section th:fragment="programas-home" id="programas" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Nuestros Programas</h2>
+            <p class="text-center text-muted mb-5">Ofrecemos programas adaptados a todos los niveles y edades</p>
+            <div class="row g-4" id="programasContainer">
+                <!-- Los programas se cargarán dinámicamente desde la API -->
+            </div>
+            <div class="text-center mt-5">
+                <a href="/programas" class="btn btn-custom btn-lg">
+                    Ver Todos los Programas <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Fin fragment: programas-home -->
+
+    <!-- Fragment: Horarios (vista home) -->
+    <section th:fragment="horarios-home" id="horarios" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Horarios de Clases</h2>
+            <p class="text-center text-muted mb-5">Encuentra el horario perfecto para ti</p>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-4">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle" id="horariosTable">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th><i class="fas fa-calendar-alt me-2"></i>Día</th>
+                                            <th><i class="fas fa-clock me-2"></i>Horario</th>
+                                            <th><i class="fas fa-signal me-2"></i>Nivel</th>
+                                            <th><i class="fas fa-user-tie me-2"></i>Instructor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Los horarios se cargarán dinámicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="/horarios" class="btn btn-custom">
+                            Ver Todos los Horarios <i class="fas fa-clock ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin fragment: horarios-home -->
+
+    <!-- Fragment: Galería (vista home) -->
+    <section th:fragment="galeria-home" id="galeria" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Galería</h2>
+            <p class="text-center text-muted mb-5">Momentos especiales de nuestra escuela</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden">
+                        <img src="https://www.clasesdepatinajevalencia.es/wp-content/uploads/2023/02/Valencia-Royals-Clases-Patinaje-Decathlon-San-Antonio-de-Benageber-1024x768.jpg" 
+                             class="card-img-top" alt="Clase de patinaje" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Clases Grupales</h5>
+                            <p class="card-text">Diversión y aprendizaje en equipo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden">
+                        <img src="https://escolapatinatge.com/wp-content/uploads/2023/01/beneficios-del-patinaje-2-600x389.jpg" 
+                             class="card-img-top" alt="Entrenamiento" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Entrenamientos Intensivos</h5>
+                            <p class="card-text">Preparación para competencias</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden">
+                        <img src="https://patinkid.com/wp-content/uploads/2023/06/patinaje-grupo-Show-1-1030x1030.jpg" 
+                             class="card-img-top" alt="Competencia" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Eventos Especiales</h5>
+                            <p class="card-text">Celebrando nuestros logros</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="/galeria" class="btn btn-custom btn-lg">
+                    Ver Galería Completa <i class="fas fa-images ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Fin fragment: galeria-home -->
+</body>
+</html>
