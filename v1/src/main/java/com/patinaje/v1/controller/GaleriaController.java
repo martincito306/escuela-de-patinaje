@@ -6,16 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class IndexController {
+@RequestMapping("/galeria")
+public class GaleriaController {
 
-    @GetMapping("/")
-    public String inicio() {
-        return "index";
-    }
-
-    @GetMapping("/index/home")
-    public String home(Model model) {
-        model.addAttribute("titulo", "Escuela de Patinaje");
-        return "index";
+    @GetMapping
+    public String galeria(Model model) {
+        model.addAttribute("titulo", "Galería de Fotos");
+        return "galeria";
     }
 }
