@@ -41,7 +41,7 @@ public class HorarioService {
 
     // Obtener horarios con cupos disponibles
     public List<Horario> obtenerConCuposDisponibles() {
-        return horarioRepository.findByCupoActualLessThanCupoMaximo();
+        return horarioRepository.findHorariosDisponibles();
     }
 
     // Crear nuevo horario

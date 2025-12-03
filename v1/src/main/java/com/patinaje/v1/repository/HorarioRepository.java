@@ -18,6 +18,7 @@ public interface HorarioRepository extends JpaRepository<Horario, Long> {
     // Buscar por instructor
     List<Horario> findByInstructor(String instructor);
     
-    // Buscar horarios con cupos disponibles
-    List<Horario> findByCupoActualLessThanCupoMaximo();
+    // Buscar horarios con cupos disponibles (usando @Query)
+    @org.springframework.data.jpa.repository.Query("SELECT h FROM Horario h WHERE h.cupoActual < h.cupoMaximo")
+    List<Horario> findHorariosDisponibles();
 }

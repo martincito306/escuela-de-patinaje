@@ -15,6 +15,6 @@ public interface ProgramaRepository extends JpaRepository<Programa, Long> {
     // Buscar programas activos
     List<Programa> findByActivoTrue();
     
-    // Buscar por rango de edad
-    List<Programa> findByEdadMinLessThanEqualAndEdadMaximaGreaterThanEqual(Integer edad, Integer edad2);
+    // Buscar por rango de edad - el campo se llama edadMinima, no edadMin
+    List<Programa> findByEdadMinimaLessThanEqualAndEdadMaximaGreaterThanEqual(Integer edad, Integer edad2);
 }
