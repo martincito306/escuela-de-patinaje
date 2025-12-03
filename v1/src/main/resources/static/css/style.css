@@ -1,6 +1,6 @@
 /* Reset y Variables */
 :root {
-    --primary-color: #0d6efd;
+    --primary-color: #f97316;
     --secondary-color: #6c757d;
     --success-color: #198754;
     --warning-color: #ffc107;
@@ -29,7 +29,7 @@ html {
 
 /* Top Header Styles */
 .top-header {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
     border-bottom: 3px solid #ffc107;
 }
 
@@ -68,7 +68,7 @@ html {
 
 .brand-icon {
     font-size: 2.5rem;
-    color: #0d6efd;
+    color: #f97316;
     animation: rotate 10s linear infinite;
 }
 
@@ -85,7 +85,7 @@ html {
 .brand-title {
     font-size: 1.2rem;
     font-weight: 800;
-    color: #0d6efd;
+    color: #f97316;
     letter-spacing: 1px;
     line-height: 1.2;
 }
@@ -113,7 +113,7 @@ html {
     left: 50%;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, #0d6efd, #6610f2);
+    background: linear-gradient(90deg, #f97316, #ea580c);
     transition: all 0.3s ease;
     transform: translateX(-50%);
     border-radius: 2px;
@@ -125,12 +125,12 @@ html {
 }
 
 .main-navbar .nav-link:hover {
-    color: #0d6efd !important;
+    color: #f97316 !important;
     transform: translateY(-2px);
 }
 
 .main-navbar .nav-link.active {
-    color: #0d6efd !important;
+    color: #f97316 !important;
 }
 
 .main-navbar .nav-link i {
@@ -139,7 +139,7 @@ html {
 
 /* Bot\u00f3n de Login Mejorado */
 .btn-login {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
     color: white;
     border: none;
     padding: 12px 30px;
@@ -315,7 +315,7 @@ html {
 
 .class-card:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.15);
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
     transform: translateY(-5px);
 }
 
@@ -373,7 +373,7 @@ html {
 
 /* Contact Form */
 .contact-form {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
 }
 
 .contact-form .form-control {
@@ -424,13 +424,13 @@ html {
 
 .social-icon:hover {
     background: white;
-    color: var(--primary-color);
+    color: #f97316;
     transform: translateY(-3px);
 }
 
 /* Footer Styles */
 footer {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
 }
 
 footer a:hover {
@@ -517,5 +517,5 @@ section {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #0a58ca;
+    background: #ea580c;
 }
