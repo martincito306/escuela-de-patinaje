@@ -1,5 +1,8 @@
 # escuela-de-patinaje
-Proyecto Desarrollo Web - Semestre 2025 - 2
+Proyecto - Semestre 2025 - 2
+
+## Nombre de la asignatura 
+Desarrollo Web 
 
 ## Integrantes del Equipo
 - [Leslie Zapata](https://github.com/lelizapata)
