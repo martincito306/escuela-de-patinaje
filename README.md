@@ -1,5 +1,5 @@
 # escuela-de-patinaje
-Proyecto Desarrollo Web
+Proyecto Desarrollo Web - Semestre 2025 - 2
 
 ## Integrantes del Equipo
 - [Leslie Zapata](https://github.com/lelizapata)
@@ -10,3 +10,7 @@ Proyecto Desarrollo Web
 - HTML
 - CSS
 - MySQL
+- Spring Boot
+- Bootstrap 5
+
+
