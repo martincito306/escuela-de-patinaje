@@ -1,7 +1,7 @@
-# escuela-de-patinaje
+# Club Paen - Club de Patinaje de Envigado 
 Proyecto - Semestre 2025 - 2
 
-## Nombre de la asignatura 
+## Nombre de la Asignatura 
 Desarrollo Web 
 
 ## Integrantes del Equipo
@@ -15,5 +15,3 @@ Desarrollo Web
 - MySQL
 - Spring Boot
 - Bootstrap 5
-
-
