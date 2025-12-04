@@ -56,14 +56,14 @@
                                         <td th:text="${usuario.lastName}">Otto</td>
                                         <td>
                                             <span th:if="${usuario.handle != null and !usuario.handle.isEmpty()}" 
-                                                  th:text="${usuario.handle}">@mdo</span>
+                                                th:text="${usuario.handle}">@mdo</span>
                                             <span th:if="${usuario.handle == null or usuario.handle.isEmpty()}" 
-                                                  class="text-muted" th:text="${usuario.email}">email@example.com</span>
+                                                class="text-muted" th:text="${usuario.email}">email@example.com</span>
                                         </td>
                                         <td class="text-center">
                                             <a th:href="@{/usuarios/eliminar/{id}(id=${usuario.id})}" 
-                                               class="btn btn-sm btn-danger"
-                                               onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                            class="btn btn-sm btn-danger"
+                                            onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>
