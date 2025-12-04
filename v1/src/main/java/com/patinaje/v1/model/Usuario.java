@@ -4,21 +4,24 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "users")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
-    private String nombre;
+    @Column(name = "first_name", nullable = false, length = 100)
+    private String firstName;
+
+    @Column(name = "last_name", nullable = false, length = 100)
+    private String lastName;
 
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(length = 50)
+    private String handle;
 
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
@@ -35,10 +38,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String email, String password) {
-        this.nombre = nombre;
+    public Usuario(String firstName, String lastName, String email, String handle) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.handle = handle;
     }
 
     // Getters y Setters
@@ -50,12 +54,20 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -66,12 +78,12 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getHandle() {
+        return handle;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setHandle(String handle) {
+        this.handle = handle;
     }
 
     public LocalDateTime getFechaRegistro() {
