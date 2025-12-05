@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Galería - Club Paen</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <!-- Banner de página -->
+    <section class="bg-gradient py-5" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-images me-3"></i>
+                        Galería de Fotos
+                    </h1>
+                    <p class="lead">Momentos especiales de nuestra comunidad Club Paen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal: Galería -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Introducción -->
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto text-center">
+                    <p class="lead text-muted">
+                        Acá compartimos algunas fotos de lo que hacemos: entrenamientos, competencias, eventos. 
+                        Cada foto tiene su historia y nos gusta guardar estos recuerdos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Galería de imágenes -->
+            <div class="row g-4">
+                <!-- Foto 1: Entrenamiento Infantil -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden h-100">
+                        <img src="https://www.clasesdepatinajevalencia.es/wp-content/uploads/2023/02/Valencia-Royals-Clases-Patinaje-Decathlon-San-Antonio-de-Benageber-1024x768.jpg" 
+                             class="card-img-top" alt="Clase de patinaje" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <i class="fas fa-users text-primary me-2"></i>Entrenamiento Infantil
+                            </h5>
+                            <p class="card-text text-muted">
+                                Los peques aprendiendo lo básico. Les encanta venir y poco a poco 
+                                van mejorando. Siempre con seguridad y diversión.
+                            </p>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>Noviembre 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 2: Competencia Regional -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden h-100">
+                        <img src="https://escolapatinatge.com/wp-content/uploads/2023/01/beneficios-del-patinaje-2-600x389.jpg" 
+                             class="card-img-top" alt="Entrenamiento" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <i class="fas fa-trophy text-warning me-2"></i>Competencia Regional
+                            </h5>
+                            <p class="card-text text-muted">
+                                Cuando fuimos al torneo regional. Los chicos lo hicieron muy bien 
+                                y nos sentimos súper orgullosos de ellos.
+                            </p>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>Octubre 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 3: Evento Especial -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden h-100">
+                        <img src="https://patinkid.com/wp-content/uploads/2023/06/patinaje-grupo-Show-1-1030x1030.jpg" 
+                             class="card-img-top" alt="Show de patinaje" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <i class="fas fa-star text-danger me-2"></i>Show de Patinaje
+                            </h5>
+                            <p class="card-text text-muted">
+                                El show de fin de año. Todos los grupos mostraron lo que aprendieron. 
+                                Siempre es un momento muy bonito.
+                            </p>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>Diciembre 2024
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 4: 30 Años de Historia -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden h-100">
+                        <img src="https://www.centrodehistoriaenvigado.com/wp-content/uploads/2022/04/club-paen-30-anos-780x360.jpg" 
+                             class="card-img-top" alt="Club Paen 30 años" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <i class="fas fa-birthday-cake text-info me-2"></i>30 Años de Historia
+                            </h5>
+                            <p class="card-text text-muted">
+                                Celebrando tres décadas formando patinadores de excelencia 
+                                en Envigado. ¡Gracias por ser parte!
+                            </p>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>Abril 2022
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 5: Competencia Nacional -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden h-100">
+                        <img src="https://fedepatin.org.co/wp-content/uploads/2019/02/tercera-01.jpg" 
+                             class="card-img-top" alt="Competencia nacional" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <i class="fas fa-medal text-success me-2"></i>Torneo Nacional
+                            </h5>
+                            <p class="card-text text-muted">
+                                Nuestros atletas de alto rendimiento compitiendo en el campeonato 
+                                nacional de patinaje artístico.
+                            </p>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>Septiembre 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 6: Exhibición -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow overflow-hidden h-100">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrWDojznDqSxJU9ORGgtTSsQQVSB2xq6Sgr76QYxlBxOHdSgptVu6RShlX-w-r2Ewjv1DUMTE9Yj0lZ0y3lymaVQWR68gp6zoBhKiDfxuvCjf6LFHvPPzC9sVZKkaPnELPfz1CRgb3fs_d/s1600/1265243_538435759562328_1858361747_o.jpg" 
+                             class="card-img-top" alt="Evento especial" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">
+                                <i class="fas fa-sparkles text-primary me-2"></i>Exhibición en Vivo
+                            </h5>
+                            <p class="card-text text-muted">
+                                Demostración pública de habilidades. Compartiendo nuestra pasión 
+                                con la comunidad de Envigado.
+                            </p>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>Agosto 2025
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Llamado a la acción -->
+            <div class="text-center mt-5 py-4">
+                <h3 class="mb-4">¿Te gustaría salir en estas fotos?</h3>
+                <p class="lead text-muted mb-4">
+                    Vení y creá tus propios momentos sobre ruedas. Es más divertido de lo que parece!
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a th:href="@{/contacto}" class="btn btn-custom btn-lg">
+                        <i class="fas fa-paper-plane me-2"></i>Escribinos
+                    </a>
+                    <a th:href="@{/programas}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-graduation-cap me-2"></i>Ver programas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Scripts -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

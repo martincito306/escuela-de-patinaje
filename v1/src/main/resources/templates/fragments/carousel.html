@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <!-- Fragment: Carrusel principal -->
+    <!-- Fragment: Carrusel principal de Club Paen -->
     <div th:fragment="carousel-principal">
-        <div id="carouselPrincipal" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div id="carouselClubPaen" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            
+            <!-- Indicadores (los puntitos de abajo) -->
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselPrincipal" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselClubPaen" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselClubPaen" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselClubPaen" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            
+            <!-- Diapositivas del carrusel -->
             <div class="carousel-inner">
+                
+                <!-- Diapositiva 1: Bienvenida Club Paen -->
                 <div class="carousel-item active">
-                    <img src="https://www.centrodehistoriaenvigado.com/wp-content/uploads/2022/04/club-paen-30-anos-780x360.jpg" class="d-block w-100" alt="Clases para niños">
-                    <div class="carousel-caption">
-                        <h5>Clases para Niños</h5>
-                        <p>Aprende patinaje desde pequeño con instructores certificados</p>
-                        <a href="/programas" class="btn btn-custom mt-3">
-                            Ver Programas <i class="fas fa-arrow-right ms-2"></i>
+                    <img th:src="@{/img/patinaje1.jpg}" class="d-block w-100" alt="Club Paen - 30 años de experiencia" 
+                         onerror="this.src='https://via.placeholder.com/1200x500/f97316/ffffff?text=Club+Paen+-+Imagen+1'">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">¡Bienvenidos a Club Paen!</h2>
+                        <p class="lead fs-4">Más de 30 años formando campeones en Envigado</p>
+                        <a th:href="@{/programas}" class="btn btn-warning btn-lg mt-3">
+                            <i class="fas fa-graduation-cap me-2"></i>Conoce nuestros programas
                         </a>
                     </div>
                 </div>
+                
+                <!-- Diapositiva 2: Niños aprendiendo -->
                 <div class="carousel-item">
-                    <img src="https://fedepatin.org.co/wp-content/uploads/2019/02/tercera-01.jpg" class="d-block w-100" alt="Entrenamiento avanzado">
-                    <div class="carousel-caption">
-                        <h5>Entrenamiento Avanzado</h5>
-                        <p>Perfecciona tus habilidades y técnicas de patinaje</p>
-                        <a href="/horarios" class="btn btn-custom mt-3">
-                            Ver Horarios <i class="fas fa-clock ms-2"></i>
+                    <img th:src="@{/img/patinaje2.jpg}" class="d-block w-100" alt="Niños aprendiendo a patinar"
+                         onerror="this.src='https://via.placeholder.com/1200x500/ea580c/ffffff?text=Clases+para+Niños'">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Clases para Niños</h2>
+                        <p class="lead fs-4">Aprende desde pequeño con los mejores instructores</p>
+                        <a th:href="@{/programas}" class="btn btn-warning btn-lg mt-3">
+                            <i class="fas fa-child me-2"></i>Ver programas infantiles
                         </a>
                     </div>
                 </div>
+                
+                <!-- Diapositiva 3: Entrenamientos -->
                 <div class="carousel-item">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrWDojznDqSxJU9ORGgtTSsQQVSB2xq6Sgr76QYxlBxOHdSgptVu6RShlX-w-r2Ewjv1DUMTE9Yj0lZ0y3lymaVQWR68gp6zoBhKiDfxuvCjf6LFHvPPzC9sVZKkaPnELPfz1CRgb3fs_d/s1600/1265243_538435759562328_1858361747_o.jpg" class="d-block w-100" alt="Competencias">
-                    <div class="carousel-caption">
-                        <h5>Competencias y Eventos</h5>
-                        <p>Participa en nuestros torneos y exhibiciones</p>
-                        <a href="/galeria" class="btn btn-custom mt-3">
-                            Ver Galería <i class="fas fa-images ms-2"></i>
+                    <img th:src="@{/img/patinaje3.jpg}" class="d-block w-100" alt="Entrenamientos profesionales"
+                         onerror="this.src='https://via.placeholder.com/1200x500/f59e0b/ffffff?text=Entrenamientos'">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Entrenamientos de Alto Nivel</h2>
+                        <p class="lead fs-4">Perfecciona tu técnica con nuestros entrenadores certificados</p>
+                        <a th:href="@{/horarios}" class="btn btn-warning btn-lg mt-3">
+                            <i class="fas fa-clock me-2"></i>Ver horarios
                         </a>
                     </div>
                 </div>
+                
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPrincipal" data-bs-slide="prev">
+            
+            <!-- Controles (flechas izquierda y derecha) -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselClubPaen" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselPrincipal" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselClubPaen" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
+            
         </div>
     </div>
     <!-- Fin fragment: carousel-principal -->

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-5">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-plus fa-4x text-primary mb-3"></i>
+                        <h1 class="display-4">Inscribite a Club Paen</h1>
+                        <p class="lead">
+                            Llená este formulario y listo. En poco tiempo nos comunicamos con vos 
+                            para coordinar todo.
+                        </p>
+                    </div>
+
+                    <!-- Mensajes de error o éxito -->
+                    <div th:if="${error}" class="alert alert-danger alert-custom">
+                        <i class="fas fa-exclamation-circle"></i> <span th:text="${error}"></span>
+                    </div>
+
+                    <div th:if="${mensaje}" class="alert alert-success alert-custom">
+                        <i class="fas fa-check-circle"></i> <span th:text="${mensaje}"></span>
+                    </div>
+
+                    <!-- Formulario de registro -->
+                    <form th:action="@{/registro}" th:object="${alumno}" method="post" class="needs-validation">
+                        
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">
+                                <i class="fas fa-user"></i> Nombre completo <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" 
+                                   placeholder="Ej: Juan Pérez Gómez" required>
+                            <small class="form-text text-muted">Como aparece en el documento</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fechaNacimiento" class="form-label">
+                                <i class="fas fa-calendar"></i> Fecha de nacimiento <span class="text-danger">*</span>
+                            </label>
+                            <input type="date" class="form-control" id="fechaNacimiento" 
+                                   th:field="*{fechaNacimiento}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-venus-mars"></i> Género <span class="text-danger">*</span>
+                            </label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="masculino" 
+                                           th:field="*{genero}" value="Masculino" required>
+                                    <label class="form-check-label" for="masculino">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="femenino" 
+                                           th:field="*{genero}" value="Femenino" required>
+                                    <label class="form-check-label" for="femenino">Femenino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="otro" 
+                                           th:field="*{genero}" value="Otro" required>
+                                    <label class="form-check-label" for="otro">Otro</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">
+                                <i class="fas fa-envelope"></i> Correo electrónico <span class="text-danger">*</span>
+                            </label>
+                            <input type="email" class="form-control" id="correo" th:field="*{correo}" 
+                                   placeholder="ejemplo@correo.com" required>
+                            <small class="form-text text-muted">
+                                Acá te vamos a enviar la confirmación
+                            </small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">
+                                <i class="fas fa-phone"></i> Teléfono/Celular <span class="text-danger">*</span>
+                            </label>
+                            <input type="tel" class="form-control" id="telefono" th:field="*{telefono}" 
+                                   placeholder="300 123 4567" required>
+                            <small class="form-text text-muted">
+                                Para contactarte más rápido
+                            </small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="medioPago" class="form-label">
+                                <i class="fas fa-credit-card"></i> ¿Cómo preferís pagar?
+                            </label>
+                            <select class="form-select" id="medioPago" th:field="*{medioPago}">
+                                <option value="">Elegí una opción...</option>
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Transferencia">Transferencia bancaria</option>
+                                <option value="Tarjeta">Tarjeta de crédito/débito</option>
+                                <option value="Otro">Otro (coordinamos después)</option>
+                            </select>
+                            <small class="form-text text-muted">
+                                Aceptamos varias formas de pago
+                            </small>
+                        </div>
+
+                        <div class="alert alert-info alert-custom">
+                            <h6><i class="fas fa-info-circle"></i> Cosas importantes:</h6>
+                            <ul class="mb-0 small">
+                                <li>Todos los datos que ponés acá son confidenciales</li>
+                                <li>Después del registro, te contactamos en máximo 24 horas</li>
+                                <li>Si sos menor de edad, un adulto responsable debe acompañarte a la primera clase</li>
+                                <li>Podés cambiar tus datos después comunicándote con nosotros</li>
+                            </ul>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Enviar inscripción
+                            </button>
+                            <a href="/" th:href="@{/}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left"></i> Volver al inicio
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Información adicional -->
+                <div class="card mt-4 p-4 bg-light">
+                    <h5><i class="fas fa-question-circle text-primary"></i> ¿Tenés dudas?</h5>
+                    <p class="mb-0">
+                        Si tenés preguntas antes de inscribirte, podés llamarnos al 
+                        <strong>(604) 123-4567</strong> o escribirnos a 
+                        <strong>info@clubpaen.com</strong>. Con gusto te ayudamos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/navbar :: footer}"></footer>
+</body>
+</html>

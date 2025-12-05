@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-5">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bullseye fa-4x text-primary mb-3"></i>
+                        <h1 class="display-4">Nuestra Misión</h1>
+                    </div>
+
+                    <div class="lead">
+                        <p>
+                            En Club Paen queremos formar personas íntegras a través del patinaje. 
+                            No solo enseñamos técnica deportiva, también trabajamos en valores y habilidades 
+                            para la vida.
+                        </p>
+
+                        <p>
+                            Nuestra misión es ofrecer un espacio seguro y divertido donde niños, jóvenes y adultos 
+                            puedan desarrollar todo su potencial. Buscamos que cada estudiante:
+                        </p>
+
+                        <ul class="mt-3 mb-3">
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle text-success"></i> 
+                                <strong>Aprenda patinaje de calidad</strong> con instructores certificados y experimentados
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle text-success"></i> 
+                                <strong>Desarrolle disciplina y constancia</strong> que le sirvan en todos los aspectos de su vida
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle text-success"></i> 
+                                <strong>Fortalezca el trabajo en equipo</strong> y el respeto por los demás
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle text-success"></i> 
+                                <strong>Tenga una vida más activa y saludable</strong> haciendo algo que le gusta
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle text-success"></i> 
+                                <strong>Encuentre su pasión</strong> y se divierta en el proceso
+                            </li>
+                        </ul>
+
+                        <p>
+                            Llevamos más de 30 años haciendo esto y seguimos con el mismo compromiso: 
+                            dar lo mejor en cada clase, adaptarnos a las necesidades de cada estudiante 
+                            y construir una comunidad donde todos se sientan bienvenidos.
+                        </p>
+
+                        <p class="text-muted fst-italic">
+                            No importa si venís a aprender por hobby o si querés llegar a competir. 
+                            Acá vas a encontrar el apoyo y la guía que necesitás.
+                        </p>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/registro" th:href="@{/registro}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user-plus"></i> Hacé parte de nuestra misión
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/navbar :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <!-- Banner Principal -->
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 mb-4">
+                <i class="fas fa-skating"></i> ¡Bienvenidos a Club Paen!
+            </h1>
+            <p class="lead mb-4">
+                Más de 30 años enseñando patinaje en Envigado. Acá formamos atletas y, sobre todo, personas.
+            </p>
+            <a href="/registro" th:href="@{/registro}" class="btn btn-light btn-lg">
+                <i class="fas fa-user-plus"></i> ¡Quiero inscribirme!
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Presentación -->
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="card p-4">
+                    <h2 class="text-center mb-4">
+                        <i class="fas fa-users text-primary"></i> ¿Quiénes somos?
+                    </h2>
+                    <p class="lead text-center">
+                        Somos Club Paen, una escuela de patinaje que lleva más de tres décadas 
+                        trabajando con niños, jóvenes y adultos en Envigado. Nos gusta lo que hacemos 
+                        y se nota en cada clase.
+                    </p>
+                    <p class="text-center">
+                        Acá no solo enseñamos a patinar. También inculcamos valores como el respeto, 
+                        la disciplina y el trabajo en equipo. Tenemos instructores con mucha experiencia 
+                        y unas instalaciones donde los chicos aprenden seguros y se divierten.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjetas informativas -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                    <h4>Experiencia</h4>
+                    <p>
+                        Más de 30 años formando patinadores. Hemos visto crecer a generaciones 
+                        de estudiantes que hoy siguen en el deporte.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-chalkboard-teacher fa-3x text-success mb-3"></i>
+                    <h4>Instructores</h4>
+                    <p>
+                        Nuestro equipo está certificado y tiene mucha experiencia. Les encanta enseñar 
+                        y saben cómo trabajar con todo tipo de estudiantes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center p-4">
+                    <i class="fas fa-medal fa-3x text-danger mb-3"></i>
+                    <h4>Resultados</h4>
+                    <p>
+                        Muchos de nuestros estudiantes han participado en competencias nacionales 
+                        e internacionales con muy buenos resultados.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Últimas noticias -->
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h2 class="text-center mb-4">
+                    <i class="fas fa-newspaper text-info"></i> ¿Qué está pasando?
+                </h2>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-calendar-check text-success"></i> Ya abrimos inscripciones para 2026
+                        </h5>
+                        <p class="card-text">
+                            ¿Querés aprender a patinar o mejorar tu técnica? Las inscripciones 
+                            están abiertas para todos los niveles. Llamá o vení a conocernos.
+                        </p>
+                        <a href="/registro" th:href="@{/registro}" class="btn btn-primary">
+                            Inscribite acá
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-trophy text-warning"></i> Vamos a torneo regional
+                        </h5>
+                        <p class="card-text">
+                            Nuestros estudiantes del nivel competitivo van a participar en el 
+                            Campeonato Regional. Les deseamos mucho éxito y que disfruten la experiencia.
+                        </p>
+                        <a href="/eventos" th:href="@{/eventos}" class="btn btn-outline-primary">
+                            Ver más eventos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Llamado a la acción -->
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="card bg-primary text-white p-5 text-center">
+                    <h2><i class="fas fa-rocket"></i> ¿Te animás a empezar?</h2>
+                    <p class="lead mb-4">
+                        No importa si nunca has patinado o si ya tenés experiencia. 
+                        Acá hay espacio para todos y todas.
+                    </p>
+                    <div>
+                        <a href="/registro" th:href="@{/registro}" class="btn btn-light btn-lg me-2">
+                            <i class="fas fa-user-plus"></i> Inscribirme
+                        </a>
+                        <a href="/servicios" th:href="@{/servicios}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle"></i> Ver servicios
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/navbar :: footer}"></footer>
+</body>
+</html>

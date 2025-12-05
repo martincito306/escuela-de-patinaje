@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Programas - Club Paen</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <!-- Banner de página -->
+    <section class="bg-gradient py-5" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-graduation-cap me-3"></i>
+                        Nuestros Programas
+                    </h1>
+                    <p class="lead">Descubre nuestros programas de patinaje para todas las edades y niveles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal: Programas -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Introducción -->
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto text-center">
+                    <p class="lead text-muted">
+                        Tenemos clases para todas las edades y niveles. Ya sea que apenas estés empezando 
+                        o que quieras competir, hay un grupo para vos. Cada programa tiene sus objetivos 
+                        pero siempre vamos al ritmo de cada persona.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjetas de Programas -->
+            <div class="row g-4">
+                <!-- Programa 1: Iniciación -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card shadow h-100 border-0">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-child fa-4x text-primary"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Iniciación</h5>
+                            <p class="text-muted small mb-3">Nivel: Básico</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-users text-success me-2"></i>
+                                    <strong>Edad:</strong> 4-7 años
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-calendar text-success me-2"></i>
+                                    <strong>Duración:</strong> 3 meses
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-clock text-success me-2"></i>
+                                    <strong>Frecuencia:</strong> 2x semana
+                                </li>
+                            </ul>
+                            <p class="card-text small mt-3">
+                                Para los que van empezando. Aprendés a mantener el equilibrio, pararte bien 
+                                y desplazarte sin caerte (bueno, a veces te vas a caer, es normal 😊).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programa 2: Intermedios -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card shadow h-100 border-0">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-running fa-4x text-warning"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Intermedios</h5>
+                            <p class="text-muted small mb-3">Nivel: Medio</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-users text-success me-2"></i>
+                                    <strong>Edad:</strong> 8-12 años
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-calendar text-success me-2"></i>
+                                    <strong>Duración:</strong> 6 meses
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-clock text-success me-2"></i>
+                                    <strong>Frecuencia:</strong> 3x semana
+                                </li>
+                            <p class="card-text small mt-3">
+                                Ya sabés patinar y querés hacer cosas más chéveres: giros, saltitos, 
+                                coreografías. Acá empezamos a complicar un poquito más.
+                            </p>Técnicas avanzadas, giros, saltos básicos y coreografías sencillas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programa 3: Competitivo -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card shadow h-100 border-0">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-trophy fa-4x text-danger"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Competitivo</h5>
+                            <p class="text-muted small mb-3">Nivel: Avanzado</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-users text-success me-2"></i>
+                                    <strong>Edad:</strong> 10-18 años
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-calendar text-success me-2"></i>
+                                    <strong>Duración:</strong> 12 meses
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-clock text-success me-2"></i>
+                                    <strong>Frecuencia:</strong> 5x semana
+                                </li>
+                            <p class="card-text small mt-3">
+                                Esto es más serio. Preparación para ir a torneos, entrenar duro y buscar 
+                                buenos resultados. Hay que tener disciplina pero vale la pena.
+                            </p>Preparación para torneos regionales y nacionales. Alto rendimiento deportivo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programa 4: Adultos Principiantes -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card shadow h-100 border-0">
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-user-friends fa-4x text-info"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Adultos Principiantes</h5>
+                            <p class="text-muted small mb-3">Nivel: Básico</p>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2">
+                                    <i class="fas fa-users text-success me-2"></i>
+                                    <strong>Edad:</strong> 18+ años
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-calendar text-success me-2"></i>
+                                    <strong>Duración:</strong> 4 meses
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-clock text-success me-2"></i>
+                                    <strong>Frecuencia:</strong> 2x semana
+                            <p class="card-text small mt-3">
+                                Nunca es tarde para aprender! Si siempre quisiste patinar, acá está tu oportunidad. 
+                                Las clases son tranquilas y al ritmo que necesites.
+                            </p>lass="card-text small mt-3">
+                                Nunca es tarde para aprender. Programa adaptado para adultos con clases personalizadas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Adicional -->
+                    <div class="alert alert-info" role="alert">
+                        <h5 class="alert-heading">
+                            <i class="fas fa-info-circle me-2"></i>Cosas que debes saber
+                        </h5>
+                        <ul class="mb-0">
+                            <li>Todos los programas tienen seguro por si acaso</li>
+                            <li>Necesitás traer casco, rodilleras, coderas y muñequeras (sí o sí)</li>
+                            <li>La primera evaluación es gratis para ver en qué nivel vas mejor</li>
+                            <li>Si vienen hermanos o varios de la familia, hay descuento</li>
+                        </ul>
+                    </div>  <li>Descuentos especiales para hermanos y grupos familiares</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón de inscripción -->
+            <div class="text-center mt-4">
+                <a th:href="@{/contacto}" class="btn btn-custom btn-lg">
+                    <i class="fas fa-paper-plane me-2"></i>Inscríbete Ahora
+                </a>
+                <a th:href="@{/horarios}" class="btn btn-outline-primary btn-lg ms-3">
+                    <i class="fas fa-clock me-2"></i>Ver Horarios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Scripts -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

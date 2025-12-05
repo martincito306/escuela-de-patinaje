@@ -4,7 +4,7 @@
     <!-- Fragment: Navbar sticky superior -->
     <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" th:href="@{/inicio}">
                 <i class="fas fa-skating"></i>
                 <span>Club Paen</span>
             </a>
@@ -15,32 +15,38 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
+                        <a class="nav-link" th:href="@{/inicio}" 
+                           th:classappend="${#strings.equals(activePage, 'inicio') ? 'active' : ''}">
                             <i class="fas fa-home me-1"></i>Inicio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/programas">
+                        <a class="nav-link" th:href="@{/programas}" 
+                           th:classappend="${#strings.equals(activePage, 'programas') ? 'active' : ''}">
                             <i class="fas fa-graduation-cap me-1"></i>Programas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/horarios">
+                        <a class="nav-link" th:href="@{/horarios}" 
+                           th:classappend="${#strings.equals(activePage, 'horarios') ? 'active' : ''}">
                             <i class="fas fa-clock me-1"></i>Horarios
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/galeria">
+                        <a class="nav-link" th:href="@{/galeria}" 
+                           th:classappend="${#strings.equals(activePage, 'galeria') ? 'active' : ''}">
                             <i class="fas fa-images me-1"></i>Galería
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contacto">
+                        <a class="nav-link" th:href="@{/contacto}" 
+                           th:classappend="${#strings.equals(activePage, 'contacto') ? 'active' : ''}">
                             <i class="fas fa-envelope me-1"></i>Contacto
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/usuarios">
+                        <a class="nav-link" th:href="@{/usuarios}" 
+                           th:classappend="${#strings.equals(activePage, 'usuarios') ? 'active' : ''}">
                             <i class="fas fa-users me-1"></i>Usuarios registrados
                         </a>
                     </li>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-5">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-eye fa-4x text-info mb-3"></i>
+                        <h1 class="display-4">Nuestra Visión</h1>
+                    </div>
+
+                    <div class="lead">
+                        <p>
+                            Queremos que Club Paen sea reconocido como la mejor escuela de patinaje 
+                            de Envigado y el sur del Valle de Aburrá. No solo por los resultados deportivos, 
+                            sino por la calidad humana de nuestros estudiantes y el ambiente que creamos.
+                        </p>
+
+                        <p>
+                            Hacia el futuro, nos vemos como una escuela que:
+                        </p>
+
+                        <div class="row mt-4 mb-4">
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light h-100 p-3">
+                                    <h5><i class="fas fa-star text-warning"></i> Referente deportivo</h5>
+                                    <p>
+                                        Ser la primera opción para familias que buscan una formación deportiva 
+                                        de calidad en patinaje.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light h-100 p-3">
+                                    <h5><i class="fas fa-users text-success"></i> Comunidad fuerte</h5>
+                                    <p>
+                                        Tener una comunidad activa de estudiantes, familias y egresados que 
+                                        siguen conectados con la escuela.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light h-100 p-3">
+                                    <h5><i class="fas fa-trophy text-primary"></i> Resultados consistentes</h5>
+                                    <p>
+                                        Seguir formando atletas que compitan a nivel nacional e internacional 
+                                        y representen bien a la escuela.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light h-100 p-3">
+                                    <h5><i class="fas fa-graduation-cap text-danger"></i> Formación integral</h5>
+                                    <p>
+                                        Que nuestros estudiantes salgan con valores sólidos y herramientas 
+                                        para enfrentar cualquier reto en la vida.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            También aspiramos a tener mejores instalaciones y recursos que nos permitan 
+                            ofrecer más programas y llegar a más personas. Queremos crecer, pero sin perder 
+                            esa cercanía y ese trato familiar que nos caracteriza.
+                        </p>
+
+                        <blockquote class="blockquote text-center mt-4 mb-4 p-4 bg-light rounded">
+                            <p class="mb-0">
+                                "No medimos el éxito solo en medallas, sino en cada estudiante que encuentra 
+                                su mejor versión a través del patinaje."
+                            </p>
+                        </blockquote>
+
+                        <p>
+                            En 5 o 10 años, queremos que cuando alguien piense en patinaje en Envigado, 
+                            lo primero que se le venga a la mente sea Club Paen. Y que eso sea por la calidad 
+                            de lo que hacemos y las personas que formamos.
+                        </p>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/servicios" th:href="@{/servicios}" class="btn btn-info btn-lg text-white">
+                            <i class="fas fa-list"></i> Conocé nuestros servicios
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/navbar :: footer}"></footer>
+</body>
+</html>

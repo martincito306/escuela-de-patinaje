@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-5">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-list fa-4x text-success mb-3"></i>
+                        <h1 class="display-4">Nuestros Servicios</h1>
+                        <p class="lead">
+                            Tenemos programas para todas las edades y todos los niveles. 
+                            Seguro encontrás uno que se ajuste a lo que buscás.
+                        </p>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-primary text-white">
+                                    <h4><i class="fas fa-child"></i> Iniciación (4-8 años)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-primary">Primeros pasos en el patinaje</h5>
+                                    <p>
+                                        Clases para niños que nunca han patinado o están empezando. 
+                                        Trabajamos equilibrio, coordinación y las técnicas básicas. 
+                                        Todo de forma lúdica y divertida.
+                                    </p>
+                                    <ul>
+                                        <li>2 clases por semana (1 hora cada una)</li>
+                                        <li>Grupos pequeños (máximo 12 niños)</li>
+                                        <li>Énfasis en seguridad y diversión</li>
+                                        <li>Material didáctico incluido</li>
+                                    </ul>
+                                    <p class="text-muted">
+                                        <i class="fas fa-calendar-alt"></i> Horarios: Lunes y miércoles 4:00 PM - 5:00 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-success text-white">
+                                    <h4><i class="fas fa-running"></i> Intermedio (9-14 años)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-success">Mejorá tu técnica</h5>
+                                    <p>
+                                        Para quienes ya saben patinar y quieren aprender más. 
+                                        Acá entramos en detalles técnicos: frenado, giros, saltos básicos 
+                                        y mejora de velocidad.
+                                    </p>
+                                    <ul>
+                                        <li>3 clases por semana (1.5 horas cada una)</li>
+                                        <li>Entrenamiento más exigente</li>
+                                        <li>Preparación para competencias locales</li>
+                                        <li>Seguimiento personalizado</li>
+                                    </ul>
+                                    <p class="text-muted">
+                                        <i class="fas fa-calendar-alt"></i> Horarios: Lunes, miércoles y viernes 5:00 PM - 6:30 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-warning text-dark">
+                                    <h4><i class="fas fa-trophy"></i> Competitivo (10+ años)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-warning">Alto rendimiento</h5>
+                                    <p>
+                                        Este nivel es para los que quieren competir en serio. Requiere más 
+                                        disciplina, más entrenamiento y más compromiso. No es para todos, 
+                                        pero si te apasiona, acá te apoyamos al máximo.
+                                    </p>
+                                    <ul>
+                                        <li>4-5 clases por semana (2 horas cada una)</li>
+                                        <li>Preparación física adicional</li>
+                                        <li>Participación en competencias nacionales</li>
+                                        <li>Seguimiento nutricional básico</li>
+                                    </ul>
+                                    <p class="text-muted">
+                                        <i class="fas fa-calendar-alt"></i> Horarios: Lunes a viernes 6:30 PM - 8:30 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-info text-white">
+                                    <h4><i class="fas fa-user-friends"></i> Adultos (18+ años)</h4>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="text-info">Nunca es tarde</h5>
+                                    <p>
+                                        Clases para adultos que quieren aprender a patinar o retomar después 
+                                        de años. El ritmo es diferente, más tranquilo, pero igual de efectivo. 
+                                        Es una excelente forma de hacer ejercicio.
+                                    </p>
+                                    <ul>
+                                        <li>2 clases por semana (1 hora cada una)</li>
+                                        <li>Ambiente relajado y sin presión</li>
+                                        <li>Enfoque en salud y bienestar</li>
+                                        <li>Horarios flexibles</li>
+                                    </ul>
+                                    <p class="text-muted">
+                                        <i class="fas fa-calendar-alt"></i> Horarios: Martes y jueves 7:00 PM - 8:00 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning alert-custom mt-4">
+                        <h5><i class="fas fa-info-circle"></i> Cosas que debes saber</h5>
+                        <ul class="mb-0">
+                            <li>Los patines y equipo de protección son obligatorios (nosotros te asesoramos dónde conseguirlos)</li>
+                            <li>Los grupos se arman según edad y nivel, para que todos aprendan cómodos</li>
+                            <li>Podés probar una clase gratis antes de inscribirte</li>
+                            <li>Los pagos son mensuales y hay descuentos para hermanos</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <h3 class="mb-4">¿Te interesa algún programa?</h3>
+                        <a href="/registro" th:href="@{/registro}" class="btn btn-success btn-lg me-2">
+                            <i class="fas fa-user-plus"></i> Inscribirme ahora
+                        </a>
+                        <a href="/eventos" th:href="@{/eventos}" class="btn btn-outline-success btn-lg">
+                            <i class="fas fa-calendar"></i> Ver eventos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/navbar :: footer}"></footer>
+</body>
+</html>
