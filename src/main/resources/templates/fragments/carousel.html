@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Fragment: Carrusel principal de Club Paen -->
+    <div th:fragment="carousel-principal">
+        <div id="carouselClubPaen" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            
+            <!-- Indicadores (los puntitos de abajo) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselClubPaen" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselClubPaen" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselClubPaen" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            
+            <!-- Diapositivas del carrusel -->
+            <div class="carousel-inner">
+                
+                <!-- Diapositiva 1: Bienvenida Club Paen -->
+                <div class="carousel-item active">
+                    <img src="https://www.centrodehistoriaenvigado.com/wp-content/uploads/2022/04/club-paen-30-anos-780x360.jpg" 
+                         class="d-block w-100" alt="Club Paen - 30 años de experiencia"
+                         style="object-fit: cover; height: 500px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">¡Bienvenidos a Club Paen!</h2>
+                        <p class="lead fs-4">Más de 30 años formando campeones en Envigado</p>
+                        <a th:href="@{/programas}" class="btn btn-warning btn-lg mt-3">
+                            <i class="fas fa-graduation-cap me-2"></i>Conoce nuestros programas
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Diapositiva 2: Niños aprendiendo -->
+                <div class="carousel-item">
+                    <img src="https://images.ctfassets.net/gkhyeghj07ak/7lyqJWBAFFuVXhHg1wIe9J/ad4953dbbef7d53aec86ebf88fb4dfd7/Patinaje_Urab__.jpeg" 
+                         class="d-block w-100" alt="Club Paen - 30 años de experiencia"
+                         style="object-fit: cover; height: 500px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Clases para Niños</h2>
+                        <p class="lead fs-4">Aprende desde pequeño con los mejores instructores</p>
+                        <a th:href="@{/programas}" class="btn btn-warning btn-lg mt-3">
+                            <i class="fas fa-child me-2"></i>Ver programas infantiles
+                        </a>
+                    </div>
+
+                </div>
+                
+                <!-- Diapositiva 3: Entrenamientos -->
+                <div class="carousel-item">
+                    <img src="https://www.acordantioquia.com/wp-content/uploads/2022/05/club-paen-nuevamente-en-lo-mas-alto.jpg" 
+                         class="d-block w-100" alt="Club Paen - Entrenamientos de alto nivel"
+                         style="object-fit: cover; height: 500px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Entrenamientos de Alto Nivel</h2>
+                        <p class="lead fs-4">Perfecciona tu técnica con nuestros entrenadores certificados</p>
+                        <a th:href="@{/horarios}" class="btn btn-warning btn-lg mt-3">
+                            <i class="fas fa-clock me-2"></i>Ver horarios
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Controles (flechas izquierda y derecha) -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselClubPaen" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselClubPaen" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+            
+        </div>
+    </div>
+    <!-- Fin fragment: carousel-principal -->
+</body>
+</html>

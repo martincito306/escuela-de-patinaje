@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Horarios - Club Paen</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <!-- Banner de página -->
+    <section class="bg-gradient py-5" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-clock me-3"></i>
+                        Horarios de Clases
+                    </h1>
+                    <p class="lead">Encuentra el horario perfecto que se adapte a tu rutina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal: Horarios -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Introducción -->
+            <div class="row mb-4">
+                <div class="col-lg-10 mx-auto text-center">
+                    <p class="lead text-muted">
+                        Acá están los horarios de las clases de toda la semana. Mirá cuál te queda mejor 
+                        y avisanos para apartar tu cupo. 
+                        <strong>Ojo, a veces pueden cambiar por eventos o clima.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tabla de Horarios -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-4">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered align-middle">
+                                    <thead class="table-primary text-center">
+                                        <tr>
+                                            <th width="15%">
+                                                <i class="fas fa-calendar-alt me-2"></i>Día
+                                            </th>
+                                            <th width="20%">
+                                                <i class="fas fa-clock me-2"></i>Horario
+                                            </th>
+                                            <th width="20%">
+                                                <i class="fas fa-graduation-cap me-2"></i>Programa
+                                            </th>
+                                            <th width="20%">
+                                                <i class="fas fa-user-tie me-2"></i>Instructor
+                                            </th>
+                                            <th width="15%">
+                                                <i class="fas fa-users me-2"></i>Cupos
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Lunes -->
+                                        <tr>
+                                            <td class="fw-bold">Lunes</td>
+                                            <td>4:00 PM - 6:00 PM</td>
+                                            <td><span class="badge bg-success">Iniciación</span></td>
+                                            <td>Prof. María López</td>
+                                            <td class="text-center"><span class="badge bg-info">15 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Lunes</td>
+                                            <td>6:00 PM - 8:00 PM</td>
+                                            <td><span class="badge bg-warning text-dark">Intermedios</span></td>
+                                            <td>Prof. Carlos Ruiz</td>
+                                            <td class="text-center"><span class="badge bg-info">12 disponibles</span></td>
+                                        </tr>
+
+                                        <!-- Martes -->
+                                        <tr>
+                                            <td class="fw-bold">Martes</td>
+                                            <td>5:00 PM - 7:00 PM</td>
+                                            <td><span class="badge bg-danger">Competitivo</span></td>
+                                            <td>Prof. Ana García</td>
+                                            <td class="text-center"><span class="badge bg-warning text-dark">5 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Martes</td>
+                                            <td>7:00 PM - 8:30 PM</td>
+                                            <td><span class="badge bg-info">Adultos Principiantes</span></td>
+                                            <td>Prof. Luis Martínez</td>
+                                            <td class="text-center"><span class="badge bg-info">10 disponibles</span></td>
+                                        </tr>
+
+                                        <!-- Miércoles -->
+                                        <tr>
+                                            <td class="fw-bold">Miércoles</td>
+                                            <td>4:00 PM - 6:00 PM</td>
+                                            <td><span class="badge bg-success">Iniciación</span></td>
+                                            <td>Prof. María López</td>
+                                            <td class="text-center"><span class="badge bg-info">15 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Miércoles</td>
+                                            <td>6:00 PM - 8:00 PM</td>
+                                            <td><span class="badge bg-warning text-dark">Intermedios</span></td>
+                                            <td>Prof. Juan Pérez</td>
+                                            <td class="text-center"><span class="badge bg-info">12 disponibles</span></td>
+                                        </tr>
+
+                                        <!-- Jueves -->
+                                        <tr>
+                                            <td class="fw-bold">Jueves</td>
+                                            <td>5:00 PM - 7:00 PM</td>
+                                            <td><span class="badge bg-danger">Competitivo</span></td>
+                                            <td>Prof. Ana García</td>
+                                            <td class="text-center"><span class="badge bg-warning text-dark">5 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Jueves</td>
+                                            <td>7:00 PM - 8:30 PM</td>
+                                            <td><span class="badge bg-info">Adultos Principiantes</span></td>
+                                            <td>Prof. Luis Martínez</td>
+                                            <td class="text-center"><span class="badge bg-info">10 disponibles</span></td>
+                                        </tr>
+
+                                        <!-- Viernes -->
+                                        <tr>
+                                            <td class="fw-bold">Viernes</td>
+                                            <td>4:00 PM - 6:00 PM</td>
+                                            <td><span class="badge bg-warning text-dark">Intermedios</span></td>
+                                            <td>Prof. Carlos Ruiz</td>
+                                            <td class="text-center"><span class="badge bg-info">12 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Viernes</td>
+                                            <td>6:00 PM - 8:00 PM</td>
+                                            <td><span class="badge bg-danger">Competitivo</span></td>
+                                            <td>Prof. Ana García</td>
+                                            <td class="text-center"><span class="badge bg-danger text-dark">Lleno</span></td>
+                                        </tr>
+
+                                        <!-- Sábado -->
+                                        <tr>
+                                            <td class="fw-bold">Sábado</td>
+                                            <td>9:00 AM - 11:00 AM</td>
+                                            <td><span class="badge bg-success">Iniciación</span></td>
+                                            <td>Prof. María López</td>
+                                            <td class="text-center"><span class="badge bg-info">20 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Sábado</td>
+                                            <td>11:00 AM - 1:00 PM</td>
+                                            <td><span class="badge bg-warning text-dark">Intermedios</span></td>
+                                            <td>Prof. Juan Pérez</td>
+                                            <td class="text-center"><span class="badge bg-info">15 disponibles</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Sábado</td>
+                                            <td>2:00 PM - 4:00 PM</td>
+                                            <td><span class="badge bg-danger">Competitivo</span></td>
+                                            <td>Prof. Ana García</td>
+                                            <td class="text-center"><span class="badge bg-warning text-dark">3 disponibles</span></td>
+                                        </tr>
+
+                                        <!-- Domingo -->
+                                        <tr class="table-secondary">
+                                            <td class="fw-bold" colspan="5" class="text-center">
+                                                <i class="fas fa-ban me-2"></i>Domingos: Cerrado (Descanso deportivo)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información adicional -->
+                    <div class="alert alert-info mt-4" role="alert">
+                        <h5 class="alert-heading">
+                            <i class="fas fa-info-circle me-2"></i>Cosas importantes
+                        </h5>
+                        <ul class="mb-0">
+                            <li><strong>Llegá temprano:</strong> Vení como 15 minutos antes para cambiarte tranquilo</li>
+                            <li><strong>Equipo:</strong> Tenés que traer casco, rodilleras, coderas y muñequeras</li>
+                            <li><strong>Reservar:</strong> Los cupos se van por orden de llegada</li>
+                            <li><strong>Cambios:</strong> A veces toca mover horarios por eventos o si un profe no puede</li>
+                            <li><strong>Si llueve:</strong> Se suspende y se reprograma (la pista es al aire libre)</li>
+                            <li>Si tenés dudas, <a th:href="@{/contacto}" class="alert-link fw-bold">escribinos acá</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="text-center mt-4">
+                        <a th:href="@{/contacto}" class="btn btn-custom btn-lg me-3">
+                            <i class="fas fa-calendar-check me-2"></i>Reservar Clase
+                        </a>
+                        <a th:href="@{/programas}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-graduation-cap me-2"></i>Ver Programas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Scripts -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

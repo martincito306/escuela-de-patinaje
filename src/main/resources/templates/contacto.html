@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Contacto - Club Paen</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <!-- Banner de página -->
+    <section class="bg-gradient py-5" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-envelope me-3"></i>
+                        Contáctanos
+                    </h1>
+                    <p class="lead">¿Tienes preguntas? Estamos aquí para ayudarte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal: Contacto -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Formulario de contacto -->
+                <div class="col-lg-8">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">
+                                <i class="fas fa-paper-plane text-warning me-2"></i>
+                                Dejanos tu mensaje
+                            </h3>
+                            
+                            <!-- Mensaje de éxito -->
+                            <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="fas fa-check-circle me-2"></i>
+                                <span th:text="${success}"></span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+
+                            <!-- Formulario -->
+                            <form method="post" th:action="@{/contacto}">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label fw-bold">
+                                            <i class="fas fa-user me-2 text-warning"></i>Nombre Completo
+                                        </label>
+                                        <input type="text" class="form-control form-control-lg" 
+                                               id="nombre" name="nombre" required 
+                                               placeholder="Ej: Juan Pérez">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-bold">
+                                            <i class="fas fa-envelope me-2 text-warning"></i>Correo Electrónico
+                                        </label>
+                                        <input type="email" class="form-control form-control-lg" 
+                                               id="email" name="email" required 
+                                               placeholder="Ej: juan@example.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="telefono" class="form-label fw-bold">
+                                            <i class="fas fa-phone me-2 text-warning"></i>Teléfono (Opcional)
+                                        </label>
+                                        <input type="tel" class="form-control form-control-lg" 
+                                               id="telefono" name="telefono" 
+                                               placeholder="Ej: 300 123 4567">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="asunto" class="form-label fw-bold">
+                                            <i class="fas fa-tag me-2 text-warning"></i>Asunto
+                                        </label>
+                                        <select class="form-select form-select-lg" id="asunto" name="asunto" required>
+                                            <option value="">Selecciona un asunto...</option>
+                                            <option value="informacion">Información general</option>
+                                            <option value="inscripcion">Inscripciones</option>
+                                            <option value="horarios">Consulta de horarios</option>
+                                            <option value="precios">Precios y pagos</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="mensaje" class="form-label fw-bold">
+                                            <i class="fas fa-comment me-2 text-warning"></i>Mensaje
+                                        </label>
+                                        <textarea class="form-control form-control-lg" 
+                                                  id="mensaje" name="mensaje" rows="5" required 
+                                                  placeholder="Escribe tu mensaje aquí..."></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-custom btn-lg w-100">
+                                            <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información de contacto -->
+                <div class="col-lg-4">
+                    <!-- Datos de contacto -->
+                    <div class="card shadow border-0 mb-4">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold mb-4">
+                                <i class="fas fa-info-circle text-warning me-2"></i>
+                                Dónde encontrarnos
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                                    <strong>Dirección:</strong><br>
+                                    <span class="ms-4">Calle 37 Sur #43-35<br>Envigado, Antioquia</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-phone text-warning me-2"></i>
+                                    <strong>Llamanos:</strong><br>
+                                    <span class="ms-4">+57 (4) 334-1234<br>+57 (300) 123-4567</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-envelope text-warning me-2"></i>
+                                    <strong>Email:</strong><br>
+                                    <span class="ms-4">info@clubpaen.com<br>inscripciones@clubpaen.com</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-clock text-warning me-2"></i>
+                                    <strong>Atendemos:</strong><br>
+                                    <span class="ms-4">Lun-Vie: 9:00 AM - 8:00 PM<br>Sábados: 9:00 AM - 2:00 PM<br>Domingos: Descansamos</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Redes sociales -->
+                    <div class="card shadow border-0">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="card-title fw-bold mb-4">
+                                <i class="fas fa-share-alt text-warning me-2"></i>
+                                Seguinos en redes
+                            </h5>
+                            <p class="text-muted small mb-3">
+                                Subimos fotos y noticias seguido
+                            </p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="https://facebook.com/clubpaen" target="_blank" 
+                                   class="btn btn-outline-warning btn-lg">
+                                    <i class="fab fa-facebook fa-2x"></i>
+                                </a>
+                                <a href="https://instagram.com/clubpaen" target="_blank" 
+                                   class="btn btn-outline-warning btn-lg">
+                                    <i class="fab fa-instagram fa-2x"></i>
+                                </a>
+                                <a href="https://youtube.com/clubpaen" target="_blank" 
+                                   class="btn btn-outline-warning btn-lg">
+                                    <i class="fab fa-youtube fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa (Placeholder) -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-0">
+                            <div style="height: 400px; background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%); 
+                                        display: flex; align-items: center; justify-content: center;">
+                                <div class="text-center">
+                                    <i class="fas fa-map-marked-alt fa-5x text-muted mb-3"></i>
+                                    <h4 class="text-muted">Ubícanos en Envigado</h4>
+                                    <p class="text-muted">Calle 37 Sur #43-35, Envigado, Antioquia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Scripts -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)">
+<head>
+    <!-- Fragment: head con título parametrizado -->
+    <th:block th:replace="~{fragments/head :: head(${title})}"></th:block>
+</head>
+<body>
+    <!-- Fragment: Navbar sticky superior -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <!-- Contenedor para el contenido específico de cada página -->
+    <main th:insert="${content}">
+        <!-- Aquí se insertará el contenido de cada página -->
+    </main>
+
+    <!-- Fragment: Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Fragment: Scripts (Bootstrap + JavaScript personalizado) -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

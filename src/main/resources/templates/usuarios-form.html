@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Registrar Usuario - Club Paen</title>
+</head>
+<body>
+    <!-- Fragment: Navbar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <!-- Contenido principal: Formulario de registro -->
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-gradient text-white text-center py-4" 
+                         style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                        <h3 class="mb-0">
+                            <i class="fas fa-user-plus me-2"></i>
+                            Registrar Nuevo Usuario
+                        </h3>
+                        <p class="mb-0 mt-2">Club Paen - Escuela de Patinaje</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <!-- Mensajes de error -->
+                        <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            <span th:text="${error}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Formulario de registro -->
+                        <form th:action="@{/usuarios}" th:object="${usuario}" method="post">
+                            <div class="row g-4">
+                                <!-- Nombre -->
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label fw-bold">
+                                        <i class="fas fa-user me-2 text-primary"></i>Nombre *
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control form-control-lg" 
+                                           id="firstName" 
+                                           th:field="*{firstName}" 
+                                           placeholder="Ej: Juan"
+                                           required>
+                                    <div class="form-text">Ingresa tu nombre</div>
+                                </div>
+
+                                <!-- Apellido -->
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label fw-bold">
+                                        <i class="fas fa-user me-2 text-primary"></i>Apellido *
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control form-control-lg" 
+                                           id="lastName" 
+                                           th:field="*{lastName}" 
+                                           placeholder="Ej: Pérez"
+                                           required>
+                                    <div class="form-text">Ingresa tu apellido</div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-12">
+                                    <label for="email" class="form-label fw-bold">
+                                        <i class="fas fa-envelope me-2 text-primary"></i>Correo Electrónico *
+                                    </label>
+                                    <input type="email" 
+                                           class="form-control form-control-lg" 
+                                           id="email" 
+                                           th:field="*{email}" 
+                                           placeholder="ejemplo@correo.com"
+                                           required>
+                                    <div class="form-text">Debe ser un correo válido y único</div>
+                                </div>
+
+                                <!-- Handle (opcional) -->
+                                <div class="col-12">
+                                    <label for="handle" class="form-label fw-bold">
+                                        <i class="fas fa-at me-2 text-primary"></i>Handle / Identificador
+                                        <span class="badge bg-secondary ms-2">Opcional</span>
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control form-control-lg" 
+                                           id="handle" 
+                                           th:field="*{handle}" 
+                                           placeholder="@username o número de documento">
+                                    <div class="form-text">Puede ser tu usuario de redes sociales o documento</div>
+                                </div>
+
+                                <!-- Botones -->
+                                <div class="col-12 mt-4">
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+                                        <a href="/usuarios" class="btn btn-outline-secondary btn-lg">
+                                            <i class="fas fa-arrow-left me-2"></i>Cancelar
+                                        </a>
+                                        <button type="submit" class="btn btn-custom btn-lg px-5">
+                                            <i class="fas fa-save me-2"></i>Guardar Usuario
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Información adicional -->
+                        <div class="alert alert-info mt-4 mb-0" role="alert">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Nota:</strong> Los campos marcados con (*) son obligatorios. 
+                            Una vez registrado, serás redirigido a la lista de usuarios.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fragment: Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Fragment: Scripts -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

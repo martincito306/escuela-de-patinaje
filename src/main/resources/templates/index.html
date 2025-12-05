@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Club Paen - Escuela Patinaje Envigado</title>
+</head>
+<body>
+    <!-- Fragment: Navbar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+        
+    <!-- Fragment: Carrusel principal -->
+    <th:block th:replace="~{fragments/carousel :: carousel-principal}"></th:block>
+
+    <!-- Fragment: Valores Corporativos -->
+    <th:block th:replace="~{fragments/home-sections :: valores}"></th:block>
+
+    <!-- Fragment: Misión y Visión -->
+    <th:block th:replace="~{fragments/home-sections :: mision-vision}"></th:block>
+
+    <!-- Fragment: Programas (vista home) -->
+    <th:block th:replace="~{fragments/home-sections :: programas-home}"></th:block>
+
+    <!-- Fragment: Horarios (vista home) -->
+    <th:block th:replace="~{fragments/home-sections :: horarios-home}"></th:block>
+
+    <!-- Fragment: Galería (vista home) -->
+    <th:block th:replace="~{fragments/home-sections :: galeria-home}"></th:block>
+
+    <!-- Fragment: Contacto (formulario) -->
+    <th:block th:replace="~{fragments/contacto-form :: contacto-form}"></th:block>
+
+    <!-- Fragment: Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- Fragment: Scripts -->
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>
