@@ -13,8 +13,8 @@ import java.util.List;
 @Configuration
 public class OpenApiConfig {
 
-    @Bean
-    public OpenAPI customOpenAPI() {
+@Bean
+public OpenAPI customOpenAPI() {
         Server localServer = new Server();
         localServer.setUrl("http://localhost:8085");
         localServer.setDescription("Servidor de desarrollo local");
