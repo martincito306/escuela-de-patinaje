@@ -1,5 +1,8 @@
-# escuela-de-patinaje
-Proyecto Desarrollo Web - Semestre 2025 - 2
+# Club Paen - Club de Patinaje de Envigado 
+Proyecto - Semestre 2025 - 2
+
+## Nombre de la Asignatura 
+Desarrollo Web 
 
 ## Integrantes del Equipo
 - [Leslie Zapata](https://github.com/lelizapata)
@@ -12,5 +15,3 @@ Proyecto Desarrollo Web - Semestre 2025 - 2
 - MySQL
 - Spring Boot
 - Bootstrap 5
-
-
