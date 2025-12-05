@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title th:text="${titulo}">Instructor - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-gradient text-white" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                        <h3 class="mb-0">
+                            <i class="fas fa-chalkboard-teacher me-2"></i>
+                            <span th:text="${titulo}">Nuevo Instructor</span>
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form th:action="@{/admin/instructores/guardar}" th:object="${instructor}" method="post">
+                            <input type="hidden" th:field="*{id}">
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-user me-2 text-warning"></i>Nombre
+                                    </label>
+                                    <input type="text" th:field="*{nombre}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-user me-2 text-warning"></i>Apellido
+                                    </label>
+                                    <input type="text" th:field="*{apellido}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-envelope me-2 text-warning"></i>Email
+                                    </label>
+                                    <input type="email" th:field="*{email}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-phone me-2 text-warning"></i>Teléfono
+                                    </label>
+                                    <input type="text" th:field="*{telefono}" class="form-control">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-star me-2 text-warning"></i>Especialidad
+                                    </label>
+                                    <select th:field="*{especialidad}" class="form-select" required>
+                                        <option value="">Seleccione...</option>
+                                        <option value="Velocidad">Velocidad</option>
+                                        <option value="Artístico">Artístico</option>
+                                        <option value="Hockey">Hockey</option>
+                                        <option value="Freestyle">Freestyle</option>
+                                        <option value="Principiantes">Principiantes</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-calendar me-2 text-warning"></i>Años de Experiencia
+                                    </label>
+                                    <input type="number" th:field="*{anosExperiencia}" class="form-control" min="0">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-certificate me-2 text-warning"></i>Certificaciones
+                                    </label>
+                                    <textarea th:field="*{certificaciones}" class="form-control" rows="3" 
+                                              placeholder="Ej: Certificado en Técnicas de Velocidad, Instructor Nivel 2..."></textarea>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-briefcase me-2 text-warning"></i>Fecha de Contratación
+                                    </label>
+                                    <input type="datetime-local" th:field="*{fechaContratacion}" class="form-control">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-toggle-on me-2 text-warning"></i>Estado
+                                    </label>
+                                    <select th:field="*{activo}" class="form-select">
+                                        <option th:value="true">Activo</option>
+                                        <option th:value="false">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="/admin/instructores" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>Volver
+                                </a>
+                                <button type="submit" class="btn btn-custom">
+                                    <i class="fas fa-save me-2"></i>Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

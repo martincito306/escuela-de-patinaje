@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Gestión de Usuarios - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold">
+                        <i class="fas fa-users text-warning me-2"></i>
+                        Gestión de Usuarios
+                    </h2>
+                    <a href="/admin/usuarios/nuevo" class="btn btn-custom">
+                        <i class="fas fa-plus me-2"></i>Nuevo Usuario
+                    </a>
+                </div>
+
+                <!-- Mensajes -->
+                <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <span th:text="${success}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <span th:text="${error}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+                <!-- Tabla de usuarios -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped align-middle mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="text-center" style="width: 60px;">ID</th>
+                                        <th>Usuario</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Teléfono</th>
+                                        <th class="text-center">Rol</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center" style="width: 150px;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="usuario : ${usuarios}">
+                                        <td class="text-center fw-bold" th:text="${usuario.id}">1</td>
+                                        <td>
+                                            <i class="fas fa-user-circle me-2 text-warning"></i>
+                                            <span th:text="${usuario.username}">admin</span>
+                                        </td>
+                                        <td th:text="${usuario.nombre + ' ' + usuario.apellido}">Admin Usuario</td>
+                                        <td th:text="${usuario.email}">admin@clubpaen.com</td>
+                                        <td th:text="${usuario.telefono}">300-123-4567</td>
+                                        <td class="text-center">
+                                            <span th:if="${usuario.rol == 'ADMIN'}" class="badge bg-danger">
+                                                <i class="fas fa-crown me-1"></i>ADMIN
+                                            </span>
+                                            <span th:if="${usuario.rol == 'INSTRUCTOR'}" class="badge bg-warning">
+                                                <i class="fas fa-chalkboard-teacher me-1"></i>INSTRUCTOR
+                                            </span>
+                                            <span th:if="${usuario.rol == 'ESTUDIANTE'}" class="badge bg-info">
+                                                <i class="fas fa-user me-1"></i>ESTUDIANTE
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span th:if="${usuario.activo}" class="badge bg-success">
+                                                <i class="fas fa-check me-1"></i>Activo
+                                            </span>
+                                            <span th:unless="${usuario.activo}" class="badge bg-secondary">
+                                                <i class="fas fa-times me-1"></i>Inactivo
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/admin/usuarios/editar/{id}(id=${usuario.id})}" 
+                                               class="btn btn-sm btn-outline-warning me-1">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a th:href="@{/admin/usuarios/eliminar/{id}(id=${usuario.id})}" 
+                                               class="btn btn-sm btn-outline-danger"
+                                               onclick="return confirm('¿Estás seguro de eliminar este usuario?');">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr th:if="${#lists.isEmpty(usuarios)}">
+                                        <td colspan="8" class="text-center text-muted py-4">
+                                            <i class="fas fa-info-circle fa-2x mb-2"></i>
+                                            <p>No hay usuarios registrados</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

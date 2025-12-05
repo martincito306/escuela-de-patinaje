@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title th:text="${titulo}">Usuario - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-gradient text-white" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                        <h3 class="mb-0">
+                            <i class="fas fa-user-edit me-2"></i>
+                            <span th:text="${titulo}">Nuevo Usuario</span>
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form th:action="@{/admin/usuarios/guardar}" th:object="${usuario}" method="post">
+                            <input type="hidden" th:field="*{id}">
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-user me-2 text-warning"></i>Nombre de Usuario
+                                    </label>
+                                    <input type="text" th:field="*{username}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-lock me-2 text-warning"></i>Contraseña
+                                    </label>
+                                    <input type="password" th:field="*{password}" class="form-control" 
+                                           th:required="${usuario.id == null}">
+                                    <small class="text-muted">Dejar en blanco para mantener la actual</small>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-id-card me-2 text-warning"></i>Nombre
+                                    </label>
+                                    <input type="text" th:field="*{nombre}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-id-card me-2 text-warning"></i>Apellido
+                                    </label>
+                                    <input type="text" th:field="*{apellido}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-envelope me-2 text-warning"></i>Email
+                                    </label>
+                                    <input type="email" th:field="*{email}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-phone me-2 text-warning"></i>Teléfono
+                                    </label>
+                                    <input type="text" th:field="*{telefono}" class="form-control">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-user-tag me-2 text-warning"></i>Rol
+                                    </label>
+                                    <select th:field="*{rol}" class="form-select" required>
+                                        <option value="">Seleccione...</option>
+                                        <option value="ADMIN">Administrador</option>
+                                        <option value="INSTRUCTOR">Instructor</option>
+                                        <option value="ESTUDIANTE">Estudiante</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-toggle-on me-2 text-warning"></i>Estado
+                                    </label>
+                                    <select th:field="*{activo}" class="form-select">
+                                        <option th:value="true">Activo</option>
+                                        <option th:value="false">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="/admin/usuarios" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>Volver
+                                </a>
+                                <button type="submit" class="btn btn-custom">
+                                    <i class="fas fa-save me-2"></i>Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

@@ -92,4 +92,21 @@ public class HorarioService {
     public void eliminarPermanente(Long id) {
         horarioRepository.deleteById(id);
     }
+    
+    // Métodos adicionales para el controlador web
+    public List<Horario> findAll() {
+        return horarioRepository.findAll();
+    }
+    
+    public Optional<Horario> findById(Long id) {
+        return horarioRepository.findById(id);
+    }
+    
+    public Horario save(Horario horario) {
+        return horarioRepository.save(horario);
+    }
+    
+    public void deleteById(Long id) {
+        horarioRepository.deleteById(id);
+    }
 }

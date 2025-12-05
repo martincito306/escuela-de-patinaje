@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title th:text="${titulo}">Horario - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-gradient text-white" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                        <h3 class="mb-0">
+                            <i class="fas fa-clock me-2"></i>
+                            <span th:text="${titulo}">Nuevo Horario</span>
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form th:action="@{/admin/horarios/guardar}" th:object="${horario}" method="post">
+                            <input type="hidden" th:field="*{id}">
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-calendar-alt me-2 text-warning"></i>Días
+                                    </label>
+                                    <input type="text" th:field="*{dias}" class="form-control" 
+                                           placeholder="Ej: Lunes y Miércoles" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-tags me-2 text-warning"></i>Nivel
+                                    </label>
+                                    <select th:field="*{nivel}" class="form-select" required>
+                                        <option value="">Seleccione...</option>
+                                        <option value="Principiante">Principiante</option>
+                                        <option value="Intermedio">Intermedio</option>
+                                        <option value="Avanzado">Avanzado</option>
+                                        <option value="Todos">Todos los niveles</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-clock me-2 text-warning"></i>Hora Inicio
+                                    </label>
+                                    <input type="time" th:field="*{horaInicio}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-clock me-2 text-warning"></i>Hora Fin
+                                    </label>
+                                    <input type="time" th:field="*{horaFin}" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-chalkboard-teacher me-2 text-warning"></i>Instructor
+                                    </label>
+                                    <input type="text" th:field="*{instructor}" class="form-control" 
+                                           placeholder="Nombre del instructor">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-book me-2 text-warning"></i>Programa
+                                    </label>
+                                    <select name="programaId" class="form-select">
+                                        <option value="">Seleccione programa...</option>
+                                        <option th:each="programa : ${programas}" 
+                                                th:value="${programa.idPrograma}"
+                                                th:text="${programa.nombre}"
+                                                th:selected="${horario.programa != null && horario.programa.idPrograma == programa.idPrograma}">
+                                        </option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-users me-2 text-warning"></i>Cupo Máximo
+                                    </label>
+                                    <input type="number" th:field="*{cupoMaximo}" class="form-control" min="1" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-user-check me-2 text-warning"></i>Cupo Actual
+                                    </label>
+                                    <input type="number" th:field="*{cupoActual}" class="form-control" min="0" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">
+                                        <i class="fas fa-toggle-on me-2 text-warning"></i>Estado
+                                    </label>
+                                    <select th:field="*{activo}" class="form-select">
+                                        <option th:value="true">Activo</option>
+                                        <option th:value="false">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="/admin/horarios" class="btn btn-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i>Volver
+                                </a>
+                                <button type="submit" class="btn btn-custom">
+                                    <i class="fas fa-save me-2"></i>Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

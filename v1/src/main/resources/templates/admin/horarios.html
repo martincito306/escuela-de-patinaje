@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Gestión de Horarios - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold">
+                        <i class="fas fa-clock text-warning me-2"></i>
+                        Gestión de Horarios
+                    </h2>
+                    <a href="/admin/horarios/nuevo" class="btn btn-custom">
+                        <i class="fas fa-plus me-2"></i>Nuevo Horario
+                    </a>
+                </div>
+
+                <!-- Mensajes -->
+                <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <span th:text="${success}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <span th:text="${error}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+                <!-- Tabla de horarios -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped align-middle mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="text-center" style="width: 60px;">ID</th>
+                                        <th>Días</th>
+                                        <th>Horario</th>
+                                        <th>Nivel</th>
+                                        <th>Instructor</th>
+                                        <th class="text-center">Cupos</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center" style="width: 150px;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="horario : ${horarios}">
+                                        <td class="text-center fw-bold" th:text="${horario.id}">1</td>
+                                        <td>
+                                            <i class="fas fa-calendar-alt me-2 text-warning"></i>
+                                            <span th:text="${horario.dias}">Lunes y Miércoles</span>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-clock me-2 text-warning"></i>
+                                            <span th:text="${horario.horaInicio + ' - ' + horario.horaFin}">09:00 - 10:30</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info" th:text="${horario.nivel}">Principiante</span>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-chalkboard-teacher me-1 text-warning"></i>
+                                            <span th:text="${horario.instructor}">Carlos Rodríguez</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span th:text="${horario.cupoActual + '/' + horario.cupoMaximo}">5/20</span>
+                                            <div class="progress mt-1" style="height: 5px;">
+                                                <div class="progress-bar bg-warning" 
+                                                     th:style="'width: ' + (${horario.cupoActual} * 100 / ${horario.cupoMaximo}) + '%'"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span th:if="${horario.activo}" class="badge bg-success">
+                                                <i class="fas fa-check me-1"></i>Activo
+                                            </span>
+                                            <span th:unless="${horario.activo}" class="badge bg-secondary">
+                                                <i class="fas fa-times me-1"></i>Inactivo
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/admin/horarios/editar/{id}(id=${horario.id})}" 
+                                               class="btn btn-sm btn-outline-warning me-1">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <a th:href="@{/admin/horarios/eliminar/{id}(id=${horario.id})}" 
+                                               class="btn btn-sm btn-outline-danger"
+                                               onclick="return confirm('¿Estás seguro de eliminar este horario?');">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr th:if="${#lists.isEmpty(horarios)}">
+                                        <td colspan="8" class="text-center text-muted py-4">
+                                            <i class="fas fa-info-circle fa-2x mb-2"></i>
+                                            <p>No hay horarios registrados</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

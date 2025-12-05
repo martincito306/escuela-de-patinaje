@@ -8,8 +8,17 @@
 -- PROGRAMAS (5 programas)
 -- ========================================
 INSERT INTO programas (nombre, descripcion, nivel, edad_minima, edad_maxima, duracion_meses, costo_mensual, costo_matricula, dias_semana, icono, activo) VALUES
-('Patinaje Infantil', 'Programa diseñado para niños que inician en el patinaje. Aprenden fundamentos básicos, equilibrio y técnicas de desplazamiento en un ambiente divertido y seguro.', 'Principiante', 5, 10, 6, 120000.00, 80000.00, 'Lunes, Miércoles, Viernes', 'fa-child', TRUE),
-('Patinaje Juvenil', 'Programa para jóvenes con fundamentos básicos. Se trabaja técnica, velocidad y preparación para competencias recreativas.', 'Básico', 11, 16, 6, 150000.00, 100000.00, 'Martes, Jueves, Sábado', 'fa-skating', TRUE),
-('Patinaje Adultos', 'Clases para adultos principiantes o recreativos. Enfoque en salud, diversión y aprendizaje de patinaje como actividad deportiva.', 'Principiante', 17, 65, 6, 130000.00, 90000.00, 'Lunes, Miércoles', 'fa-user', TRUE),
+('Patinaje Infantil', 'Programa diseï¿½ado para niï¿½os que inician en el patinaje. Aprenden fundamentos bï¿½sicos, equilibrio y tï¿½cnicas de desplazamiento en un ambiente divertido y seguro.', 'Principiante', 5, 10, 6, 120000.00, 80000.00, 'Lunes, Miï¿½rcoles, Viernes', 'fa-child', TRUE),
+('Patinaje Juvenil', 'Programa para jï¿½venes con fundamentos bï¿½sicos. Se trabaja tï¿½cnica, velocidad y preparaciï¿½n para competencias recreativas.', 'Bï¿½sico', 11, 16, 6, 150000.00, 100000.00, 'Martes, Jueves, Sï¿½bado', 'fa-skating', TRUE),
+('Patinaje Adultos', 'Clases para adultos principiantes o recreativos. Enfoque en salud, diversiï¿½n y aprendizaje de patinaje como actividad deportiva.', 'Principiante', 17, 65, 6, 130000.00, 90000.00, 'Lunes, Miï¿½rcoles', 'fa-user', TRUE),
 ('Entrenamiento Competencia', 'Entrenamiento intensivo para competiciones regionales y nacionales. Requiere nivel avanzado y compromiso de tiempo completo.', 'Competencia', 10, 25, 12, 250000.00, 150000.00, 'Lunes a Viernes', 'fa-trophy', TRUE),
-('Patinaje Velocidad', 'Especialización en velocidad sobre ruedas. Técnicas avanzadas de carrera, resistencia y competencia en pista.', 'Avanzado', 12, 30, 12, 220000.00, 120000.00, 'Martes, Jueves, Sábado', 'fa-forward', TRUE);
+('Patinaje Velocidad', 'Especializaciï¿½n en velocidad sobre ruedas. Tï¿½cnicas avanzadas de carrera, resistencia y competencia en pista.', 'Avanzado', 12, 30, 12, 220000.00, 120000.00, 'Martes, Jueves, Sï¿½bado', 'fa-forward', TRUE);
+
+-- ========================================
+-- HORARIOS (4 horarios)
+-- ========================================
+INSERT INTO horarios (dias, hora_inicio, hora_fin, nivel, instructor, programa_id, cupo_maximo, cupo_actual, activo) VALUES
+('Lunes y Miï¿½rcoles', '09:00:00', '10:30:00', 'Principiante', 'Carlos Rodrï¿½guez', 1, 20, 5, TRUE),
+('Martes y Jueves', '16:00:00', '17:30:00', 'Intermedio', 'Ana Marï¿½a Lï¿½pez', 2, 15, 8, TRUE),
+('Lunes, Miï¿½rcoles y Viernes', '07:00:00', '09:00:00', 'Avanzado', 'Juan Pablo Henao', 4, 12, 10, TRUE),
+('Sï¿½bados', '10:00:00', '12:00:00', 'Todos', 'Laura Martï¿½nez', 1, 25, 15, TRUE);
