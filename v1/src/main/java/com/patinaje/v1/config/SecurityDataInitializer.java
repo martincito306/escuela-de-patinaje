@@ -3,6 +3,7 @@ package com.patinaje.v1.config;
 import com.patinaje.v1.model.User;
 import com.patinaje.v1.repository.UserRepository;
 import java.time.LocalDateTime;
+import java.util.regex.Pattern;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,20 +38,35 @@ public class SecurityDataInitializer {
                                        String telefono,
                                        String rol,
                                        String rawPassword) {
-        if (userRepository.findByUsername(username) != null) {
-            return;
+        User existing = userRepository.findByUsername(username);
+        if (existing == null) {
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(passwordEncoder.encode(rawPassword));
+            user.setEmail(email);
+            user.setNombre(nombre);
+            user.setApellido(apellido);
+            user.setTelefono(telefono);
+            user.setRol(rol);
+            user.setActivo(true);
+            user.setFechaRegistro(LocalDateTime.now());
+            userRepository.save(user);
+        } else {
+            existing.setEmail(email);
+            existing.setNombre(nombre);
+            existing.setApellido(apellido);
+            existing.setTelefono(telefono);
+            existing.setRol(rol);
+            existing.setActivo(true);
+            if (!BCRYPT_PATTERN.matcher(existing.getPassword()).matches()) {
+                existing.setPassword(passwordEncoder.encode(rawPassword));
+            }
+            if (existing.getFechaRegistro() == null) {
+                existing.setFechaRegistro(LocalDateTime.now());
+            }
+            userRepository.save(existing);
         }
-
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(rawPassword));
-        user.setEmail(email);
-        user.setNombre(nombre);
-        user.setApellido(apellido);
-        user.setTelefono(telefono);
-        user.setRol(rol);
-        user.setActivo(true);
-        user.setFechaRegistro(LocalDateTime.now());
-        userRepository.save(user);
     }
+
+    private static final Pattern BCRYPT_PATTERN = Pattern.compile("^\\$2[aby]\\$.*");
 }
