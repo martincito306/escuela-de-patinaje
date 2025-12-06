@@ -19,7 +19,7 @@ public class UsuarioService {
      */
     public Usuario registrarUsuario(String firstName, String lastName, String email, String handle) {
         // Verificar si el email ya existe
-        if (usuarioRepository.existsByEmail(email)) {
+        if (usuarioRepository.findByEmail(email).isPresent()) {
             throw new RuntimeException("El email ya está registrado");
         }
 
@@ -35,7 +35,7 @@ public class UsuarioService {
         if (usuario.getId() == null || !usuarioRepository.findById(usuario.getId())
                 .map(u -> u.getEmail().equals(usuario.getEmail()))
                 .orElse(false)) {
-            if (usuarioRepository.existsByEmail(usuario.getEmail())) {
+            if (usuarioRepository.findByEmail(usuario.getEmail()).isPresent()) {
                 throw new RuntimeException("El email ya está registrado");
             }
         }
@@ -74,6 +74,6 @@ public class UsuarioService {
      * Verifica si existe un usuario con el email dado
      */
     public boolean existePorEmail(String email) {
-        return usuarioRepository.existsByEmail(email);
+        return usuarioRepository.findByEmail(email).isPresent();
     }
 }

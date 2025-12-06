@@ -1,13 +1,10 @@
 package com.patinaje.v1.service;
 
-import com.patinaje.v1.model.User;
-import com.patinaje.v1.repository.UserRepository;
-import java.util.regex.Pattern;
+import com.patinaje.v1.model.Usuario;
+import com.patinaje.v1.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,49 +12,30 @@ import java.util.Optional;
 public class UserService {
     
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    private static final Pattern BCRYPT_PATTERN = Pattern.compile("^\\$2[aby]\\$.*");
+    private UsuarioRepository usuarioRepository;
     
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<Usuario> findAll() {
+        return usuarioRepository.findAll();
     }
     
-    public List<User> findAllActivos() {
-        return userRepository.findByActivoTrue();
+    public Optional<Usuario> findById(Long id) {
+        return usuarioRepository.findById(id);
     }
     
-    public Optional<User> findById(Long id) {
-        return userRepository.findById(id);
-    }
-    
-    public User save(User user) {
-        if (user.getFechaRegistro() == null) {
-            user.setFechaRegistro(LocalDateTime.now());
-        }
-
-        if (user.getPassword() != null && !BCRYPT_PATTERN.matcher(user.getPassword()).matches()) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-        }
-        return userRepository.save(user);
+    public Usuario save(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
     
     public void deleteById(Long id) {
-        userRepository.deleteById(id);
+        usuarioRepository.deleteById(id);
     }
-    
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+
+    public Optional<Usuario> findByUsername(String username) {
+        Usuario usuario = usuarioRepository.findByUsername(username);
+        return usuario != null ? Optional.of(usuario) : Optional.empty();
     }
-    
-    public User findByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-    
-    public List<User> findByRol(String rol) {
-        return userRepository.findByRol(rol);
+
+    public Optional<Usuario> findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
     }
 }

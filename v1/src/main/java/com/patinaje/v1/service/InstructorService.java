@@ -5,7 +5,6 @@ import com.patinaje.v1.repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,9 +27,6 @@ public class InstructorService {
     }
     
     public Instructor save(Instructor instructor) {
-        if (instructor.getFechaRegistro() == null) {
-            instructor.setFechaRegistro(LocalDateTime.now());
-        }
         return instructorRepository.save(instructor);
     }
     

@@ -1,8 +1,6 @@
 package com.patinaje.v1.controller;
 
-import com.patinaje.v1.model.User;
-import com.patinaje.v1.service.UserService;
-import com.patinaje.v1.repository.UserRepository;
+import com.patinaje.v1.service.RegistroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +16,7 @@ import java.util.List;
 public class RegistroController {
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private UserRepository userRepository;
+    private RegistroService registroService;
 
     @GetMapping("/registro")
     public String mostrarRegistro(Model model) {
@@ -39,6 +34,7 @@ public class RegistroController {
             @RequestParam String rol,
             @RequestParam String password,
             @RequestParam String confirmarPassword,
+            @RequestParam(required = false) String acudiente,
             RedirectAttributes redirectAttributes) {
 
         List<String> errores = new ArrayList<>();
@@ -48,16 +44,20 @@ public class RegistroController {
             errores.add("Las contraseñas no coinciden");
         }
 
-        if (userRepository.findByUsername(username) != null) {
+        if (registroService.usuarioExistePorUsername(username)) {
             errores.add("El nombre de usuario ya está registrado");
         }
 
-        if (userRepository.findByEmail(email) != null) {
+        if (registroService.usuarioExistePorEmail(email)) {
             errores.add("El email ya está registrado");
         }
 
         if (!List.of("ESTUDIANTE", "INSTRUCTOR").contains(rol)) {
             errores.add("Rol inválido");
+        }
+        
+        if ("ESTUDIANTE".equals(rol) && (acudiente == null || acudiente.trim().isEmpty())) {
+            errores.add("El acudiente es requerido para estudiantes");
         }
 
         if (!errores.isEmpty()) {
@@ -73,18 +73,20 @@ public class RegistroController {
             return "redirect:/registro";
         }
 
-        // Crear nuevo usuario
-        User nuevoUsuario = new User();
-        nuevoUsuario.setNombre(nombre);
-        nuevoUsuario.setApellido(apellido);
-        nuevoUsuario.setEmail(email);
-        nuevoUsuario.setTelefono(telefono);
-        nuevoUsuario.setUsername(username);
-        nuevoUsuario.setPassword(password);
-        nuevoUsuario.setRol(rol);
-        nuevoUsuario.setActivo(true);
-
-        userService.save(nuevoUsuario);
+        // Crear nuevo usuario usando RegistroService
+        try {
+            if ("ESTUDIANTE".equals(rol)) {
+                registroService.registrarEstudiante(nombre, apellido, email, telefono, username, password, acudiente);
+            } else if ("INSTRUCTOR".equals(rol)) {
+                registroService.registrarInstructor(nombre, apellido, email, telefono, username, password);
+            } else {
+                redirectAttributes.addFlashAttribute("error", "Rol no válido");
+                return "redirect:/registro";
+            }
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al registrar: " + e.getMessage());
+            return "redirect:/registro";
+        }
 
         redirectAttributes.addFlashAttribute("registroExito", "Tu cuenta fue creada exitosamente. ¡Inicia sesión!");
 

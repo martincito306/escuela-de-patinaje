@@ -48,9 +48,6 @@ public class InstructorWebController {
     @PostMapping("/guardar")
     public String guardarInstructor(@ModelAttribute Instructor instructor, RedirectAttributes redirectAttributes) {
         try {
-            if (instructor.getFechaRegistro() == null) {
-                instructor.setFechaRegistro(LocalDateTime.now());
-            }
             instructorService.save(instructor);
             redirectAttributes.addFlashAttribute("success", "Instructor guardado exitosamente");
         } catch (Exception e) {

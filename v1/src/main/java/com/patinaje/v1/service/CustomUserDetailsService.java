@@ -1,9 +1,8 @@
 package com.patinaje.v1.service;
 
-import com.patinaje.v1.model.User;
-import com.patinaje.v1.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,6 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import com.patinaje.v1.model.User;
+import com.patinaje.v1.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
