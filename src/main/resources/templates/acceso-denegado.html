@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Acceso Denegado - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 text-center">
+                    <div class="card-body p-5">
+                        <i class="fas fa-ban fa-5x text-danger mb-4"></i>
+                        <h2 class="text-danger mb-3">Acceso Denegado</h2>
+                        <p class="lead">No tienes permisos para acceder a esta página.</p>
+                        <p class="text-muted">Si crees que esto es un error, contacta al administrador.</p>
+                        <div class="mt-4">
+                            <a href="/inicio" class="btn btn-custom me-2">
+                                <i class="fas fa-home me-2"></i>Volver al Inicio
+                            </a>
+                            <a href="/dashboard" class="btn btn-outline-warning">
+                                <i class="fas fa-dashboard me-2"></i>Ir a Mi Panel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

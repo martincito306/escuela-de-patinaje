@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Mi perfil - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <section class="container py-5">
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="h2 fw-bold" style="color:#f97316;">
+                    <i class="fas fa-id-card me-2"></i>Mi perfil
+                </h1>
+                <p class="text-muted">Aquí podrás actualizar tus datos personales y cambiar tu contraseña.</p>
+            </div>
+        </div>
+        <div class="alert alert-secondary border-0 shadow-sm" role="alert">
+            <i class="fas fa-user-cog me-2"></i>
+            Estamos preparando el formulario de actualización de datos. Por ahora, solicita cualquier cambio al administrador del club.
+        </div>
+    </section>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

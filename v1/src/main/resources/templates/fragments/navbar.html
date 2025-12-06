@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
     <!-- Fragment: Navbar sticky superior -->
     <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
@@ -44,12 +45,12 @@
                             <i class="fas fa-envelope me-1"></i>Contacto
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                    <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-cog me-1"></i>Administración
+                            <i class="fas fa-user-shield me-1"></i>Administración
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
                             <li><a class="dropdown-item" th:href="@{/admin/usuarios}">
                                 <i class="fas fa-users me-2 text-warning"></i>Usuarios
                             </a></li>
@@ -59,10 +60,69 @@
                             <li><a class="dropdown-item" th:href="@{/admin/horarios}">
                                 <i class="fas fa-clock me-2 text-warning"></i>Horarios
                             </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" th:href="@{/programas}">
-                                <i class="fas fa-graduation-cap me-2 text-warning"></i>Ver Programas
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown" sec:authorize="hasAnyRole('INSTRUCTOR','ADMIN')">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInstructor" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-chalkboard-teacher me-1"></i>Instructor
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownInstructor">
+                            <li><a class="dropdown-item" th:href="@{/instructor/panel}">
+                                <i class="fas fa-tachometer-alt me-2 text-warning"></i>Mi Panel
                             </a></li>
+                            <li><a class="dropdown-item" th:href="@{/instructor/mis-clases}">
+                                <i class="fas fa-chalkboard me-2 text-warning"></i>Mis Clases
+                            </a></li>
+                            <li><a class="dropdown-item" th:href="@{/asistencia}">
+                                <i class="fas fa-clipboard-check me-2 text-warning"></i>Asistencia
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown" sec:authorize="hasAnyRole('ESTUDIANTE','ADMIN')">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEstudiante" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-graduate me-1"></i>Estudiante
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownEstudiante">
+                            <li><a class="dropdown-item" th:href="@{/estudiante/panel}">
+                                <i class="fas fa-tachometer-alt me-2 text-warning"></i>Mi Panel
+                            </a></li>
+                            <li><a class="dropdown-item" th:href="@{/estudiante/mis-horarios}">
+                                <i class="fas fa-calendar-alt me-2 text-warning"></i>Mis Horarios
+                            </a></li>
+                            <li><a class="dropdown-item" th:href="@{/mi-perfil}">
+                                <i class="fas fa-user me-2 text-warning"></i>Mi Perfil
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link btn btn-outline-light ms-2 px-3" th:href="@{/login}">
+                            <i class="fas fa-sign-in-alt me-1"></i>Iniciar sesión
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span sec:authentication="name">Usuario</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+                            <li><a class="dropdown-item" th:href="@{/mi-perfil}">
+                                <i class="fas fa-user me-2 text-warning"></i>Mi Perfil
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form th:action="@{/logout}" method="post" class="m-0">
+                                    <button type="submit" class="dropdown-item text-danger">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Cerrar sesión
+                                    </button>
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 </ul>

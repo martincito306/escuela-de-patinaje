@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Panel del instructor - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <section class="container py-5">
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="display-5 fw-bold text-center text-uppercase" style="color:#f97316;">
+                    <i class="fas fa-chalkboard-teacher me-3"></i>Panel del Instructor
+                </h1>
+                <p class="text-center text-muted">Consulta tus clases, registra asistencia y mantén tu perfil actualizado.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-warning text-dark me-3">
+                                <i class="fas fa-calendar-alt"></i>
+                            </span>
+                            <h5 class="mb-0">Mis clases</h5>
+                        </div>
+                        <p class="text-muted">Revisa los horarios asignados y gestiona cambios con coordinación.</p>
+                        <a th:href="@{/instructor/mis-clases}" class="btn btn-outline-warning btn-sm">
+                            Ver horarios
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-warning text-dark me-3">
+                                <i class="fas fa-clipboard-check"></i>
+                            </span>
+                            <h5 class="mb-0">Asistencia</h5>
+                        </div>
+                        <p class="text-muted">Registra asistencia de tus grupos y mantén histórico de participación.</p>
+                        <a th:href="@{/asistencia}" class="btn btn-outline-warning btn-sm">
+                            Registrar asistencia
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 border-0">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-warning text-dark me-3">
+                                <i class="fas fa-user-cog"></i>
+                            </span>
+                            <h5 class="mb-0">Mi perfil</h5>
+                        </div>
+                        <p class="text-muted">Actualiza tu información de contacto y certificaciones vigentes.</p>
+                        <a th:href="@{/mi-perfil}" class="btn btn-outline-warning btn-sm">
+                            Editar perfil
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>

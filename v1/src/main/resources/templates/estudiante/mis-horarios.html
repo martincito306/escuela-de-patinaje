@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title>Mis horarios - Club Paen</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <section class="container py-5">
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="h2 fw-bold" style="color:#f97316;">
+                    <i class="fas fa-calendar-day me-2"></i>Mis horarios
+                </h1>
+                <p class="text-muted">Muy pronto podrás ver tus horarios inscritos y el estado de tus cupos.</p>
+            </div>
+        </div>
+        <div class="alert alert-warning border-0 shadow-sm" role="alert">
+            <i class="fas fa-info-circle me-2"></i>
+            Estamos conectando esta vista con la base de datos. Cuando el administrador confirme tu inscripción, aparecerá aquí.
+        </div>
+    </section>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+    <th:block th:replace="~{fragments/scripts :: scripts}"></th:block>
+</body>
+</html>
